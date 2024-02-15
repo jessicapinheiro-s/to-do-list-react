@@ -1,11 +1,11 @@
-$cor-principal-dark: #313131;
-$cor-secundaria: #414141;
+$cor-principal-dark: #1f1f1f;
+$cor-secundaria: #3b3b3b;
 $cor-light: #525252;
 $cor-font-principal: #fff;
 $cor-borda: #eeeeee96;
 $task-concluida: green;
 $task-excluida: red;
-$cor-bt-add: #21E6C1;
+$cor-bt-add: #e037ae;
 
 
 @mixin animacao ($background-color, $color) {
@@ -28,146 +28,112 @@ body {
     background-color: $cor-principal-dark ;
 }
 
-main {
-    display: flex;
+.App {
+    display: grid;
+    grid-template-columns: 15% 1fr;
+    padding: 10px;
+    grid-template-areas: 'Input-data Input-data'
+        'Tasks-body Tasks-body'
+        'Tasks-body Tasks-body';
+    grid-template-rows: 8% 1fr 40%;
+    height: 100vh;
+    background-color: $cor-principal-dark;
 
-    .menu-vertical {
+
+    .minha-conta {
         background-color: $cor-secundaria;
-        padding: 30px;
         border-top-right-radius: 10px;
         border-bottom-right-radius: 10px;
-        //height: 100vh;
+        margin: 10px;
+        border-radius: 20px;
+        height: 35%;
 
         nav ul li {
             padding: 20px 30px;
             list-style: none;
-            border-radius: 10px;
+            border-radius: 20px;
             display: flex;
             align-items: end;
-            margin: 10px 0px 10px;
 
             &:hover {
                 background-color: $cor-light;
             }
 
-            i {
+            .icon {
                 font-size: 1.3rem;
                 margin-right: 10px;
             }
 
         }
 
-        span {
-            padding: 20px 30px;
-            font-size: 1.5rem;
-            font-weight: bold;
-        }
-
-        .bg-theme {
-            z-index: 2;
-            border-radius: 10px;
-            padding: 10px;
-            position: relative;
-            top: 60%;
-
-            .theme-circles {
-                display: flex;
-                justify-content: left;
-                align-items: center;
-                align-items: center;
-                justify-content: space-around;
-
-                i {
-                    font-size: 20px;
-                }
-
-            }
-
-            .dark-theme-border {
-                width: 40px;
-                height: 20px;
-                border-radius: 20px;
-                border: 3px solid $cor-font-principal;
-                position: relative;
-            }
-
-            .dark-theme-border:before {
-                content: '';
-                position: absolute;
-                width: 15px;
-                height: 15px;
-                left: 1px;
-                top: 50%;
-                border-radius: 50%;
-                background-color: $cor-font-principal;
-                transform: translateY(-50%);
-                transition: left 1s;
-            }
-
-            .dark-theme-border.animation:before {
-                left: 29px;
-                background-color: $cor-font-principal;
-            }
-
-            .dark-theme-border.animation {
-                border: 5px solid $cor-font-principal;
-            }
-        }
     }
 
-    .container {
-        width: 100%;
-        height: 100vh;
+    .list-tasks {
+        border-radius: 20px;
+        margin: 10px;
 
-        .subContainer {
-            margin: auto;
-            text-align: center;
-            width: 100%;
+    }
 
-            span {
-                font-size: 1.5rem;
-                color: #000000;
-                font-weight: bold;
-            }
+    .container-task {
+        grid-area: Tasks-body;
+    }
 
-            .entrada-de-dados {
-                padding: 10px;
-                display: flex;
-                justify-content: space-between;
-                margin: 10px;
+    .container-input {
+        grid-area: Input-data;
+    }
 
-                #inTarefa {
-                    padding: 15px;
-                    outline: none;
-                    border: none;
-                    font-size: 1rem;
-                    width: 90%;
-                    color: $cor-font-principal;
-                    background-color: $cor-secundaria;
-                    border-radius: 10px;
-                }
+    .entrada-de-dados {
+        display: flex;
+        justify-content: space-between;
+        margin: 10px;
+        align-items: center;
 
-                
-            }
-            .list-tasks{
-                padding: 10px;
+        select {
+            width: 10%;
+            border: none;
+            outline: none;
+            background-color: $cor-secundaria;
+            color: $cor-font-principal;
+            border-radius: 20px;
+            padding: 15px;
+        }
 
+        .icon-user {
+            font-size: 30px;
+            padding: 15px;
+        }
+
+        #inTarefa {
+            outline: none;
+            border: none;
+            font-size: 1rem;
+            width: 70%;
+            color: $cor-font-principal;
+            border-radius: 20px;
+            background-color: $cor-secundaria;
+            padding: 15px;
+
+            &:focus {
+                border: 1px solid white;
             }
         }
-        
-    }
-    #btAdd {
-        background-color: $cor-bt-add;
-        color: $cor-font-principal;
-        border: none;
-        padding: 15px  20px;
-        border-radius: 8px;
-        font-size: 1.2rem;
-        width: 6%;
-        &:hover {
-            @include animacao($cor-bt-add, $cor-font-principal);
+        #btAdd {
+            background-color: $cor-bt-add;
+            color: $cor-font-principal;
+            border: none;
+            padding: 15px;
+            border-radius: 20px;
+            font-size: 1.2rem;
+            width: 6%;
+    
+            &:hover {
+                background-color: #223531;
+            }
         }
+
     }
+
+    
 
     .bts-laterais {
         width: 70px;
@@ -206,7 +172,6 @@ main {
 }
 
 #lista {
-    margin: 0px auto 80px;
     width: 100%;
     display: flex;
     align-items: center;
@@ -215,11 +180,9 @@ main {
 
     .li-task {
         background-color: $cor-light;
-        //padding: 20px;
         display: flex;
         justify-content: center;
-        margin: 10px;
-        border-radius: 8px;
+        border-radius: 20px;
         font-size: 1.2rem;
         width: 300px;
         height: 150px;
@@ -236,69 +199,7 @@ main {
     }
 
 
-    .li-task.selecionada {
-        background-color: $cor-principal-dark;
-    }
-
-
-    .resposta {
-        text-align: center;
-    }
 }
-
-/*cicles theme*/
-.circle-theme-dark.animation {
-    animation: moveToRight 0.5s ease;
-}
-
-@keyframes moveToRight {
-    0% {
-        transform: translateX(0px);
-    }
-
-    100% {
-        transform: translateX(30px);
-    }
-}
-
-.circle-theme-dark {
-    border-radius: 50%;
-    width: 30px;
-    height: 30px;
-
-}
-
-.circle-theme-dark {
-    background-color: #000000;
-    position: relative;
-}
-
-.circle-theme-dark.ativo {
-    background-color: $cor-font-principal;
-}
-
-.circle-theme-dark.desativado {
-    border-radius: 5px solid white;
-    background-color: $cor-font-principal;
-}
-
-.body.dark {
-    background-color: #030303;
-    color: $cor-font-principal;
-}
-
-.bg-theme.dark {
-    background-color: transparent;
-}
-
-.branco {
-    background-color: $cor-font-principal;
-}
-
-
-
-
-
 
 @media (max-width:600px) {
     .container {

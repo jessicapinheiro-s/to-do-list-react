@@ -1,14 +1,17 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
-import MenuLateral from './components/menu-Lateral';
 import EntradaDados from './components/entrada-dados';
+import ListaTasks from './components/lista-tasks';
+import ButtonsLaterais from './components/buttons-laterais';
+import MinhaConta from './components/minha-conta';
+import Task from './components/task';
+import './styles/style.css';
 
 function App() {
   return (
     <div className="App">
-      <MenuLateral></MenuLateral>
       <EntradaDados></EntradaDados>
+      <ListaTasks></ListaTasks>
+      <ButtonsLaterais></ButtonsLaterais>
     </div>
   );
 }
