@@ -11,6 +11,26 @@ body {
   background-color: #1f1f1f;
 }
 
+.task-card {
+  width: 150px;
+  padding: 20px 30px;
+  border-radius: 10px;
+  background-color: #3b3b3b;
+  color: #fff;
+}
+.task-card:hover {
+  background-color: #525252;
+}
+.task-card p {
+  word-wrap: break-word;
+  padding: 10px 0px;
+}
+.task-card .tipo-Task {
+  padding: 5px 8px;
+  border-radius: 20px;
+  background-color: #e037ae;
+}
+
 .App {
   display: grid;
   grid-template-columns: 15% 1fr;
@@ -92,6 +112,7 @@ body {
   border-radius: 20px;
   font-size: 1.2rem;
   width: 6%;
+  outline: none;
 }
 .App .entrada-de-dados #btAdd:hover {
   background-color: #223531;

@@ -27,7 +27,25 @@ body {
     color: $cor-font-principal;
     background-color: $cor-principal-dark ;
 }
-
+.task-card{
+    width: 150px;
+    padding: 20px 30px;
+    border-radius: 10px;
+    background-color: $cor-secundaria;
+    color: $cor-font-principal;
+    &:hover{
+        background-color: $cor-light;
+    }
+    p{
+        word-wrap: break-word;
+        padding: 10px 0px ;
+    }
+    .tipo-Task{
+        padding: 5px 8px;
+        border-radius: 20px;
+        background-color: $cor-bt-add;
+    }
+}
 .App {
     display: grid;
     grid-template-columns: 15% 1fr;
@@ -125,6 +143,7 @@ body {
             border-radius: 20px;
             font-size: 1.2rem;
             width: 6%;
+            outline: none;
     
             &:hover {
                 background-color: #223531;

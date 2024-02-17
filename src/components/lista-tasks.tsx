@@ -1,12 +1,15 @@
-import '../styles/style.css'
+import '../styles/style.css';
+interface ListaTasksProps {
+    children?: React.ReactNode;
+  }
 
-export default function ListaTasks() {
+function ListaTasks({ children }: ListaTasksProps) {
     return (
         <div className='container-task'>
             <div className="list-tasks">
-            <ul id="lista"></ul>
+            {children}
         </div>
         </div>
     )
 }
-
+export {ListaTasks};

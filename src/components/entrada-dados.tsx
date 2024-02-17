@@ -3,22 +3,52 @@ import { IoMdAdd } from "react-icons/io";
 import { FaCircleUser } from "react-icons/fa6";
 import { useState } from 'react';
 import React from 'react';
-import Task from './task';
 
-export default function EntradaDados() {
-    const [task,setTask] = useState();
+export default function EntradaDados({ onEnviar }: any) {
+    const [option, setOption] = useState('');
+    const [valorInput, setValorInput] = useState('');
+    const dataAtual: string = new Date().toLocaleDateString();
+
+    const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+        setValorInput(event.target.value);
+    };
+
+    const handleChangeSelect = (event: React.ChangeEvent<HTMLSelectElement>) => {
+        setOption(event.target.value);
+    };
+
+    const handleSubmit = (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
+        event.preventDefault();
+        if (valorInput === '') {
+            alert('Campo vazio preencha corretamente');
+            return;
+        }
+
+        const propsTask = {
+            taskmessage: valorInput,
+            dataAtual: dataAtual,
+            tipoTask: option
+        };
+
+        // Chama a função onEnviar com as propsTask como argumento
+        onEnviar(propsTask);
+
+        // Limpa o valor do input
+        setValorInput('');
+    };
     return (
         <div className='container-input'>
-            <div className="entrada-de-dados">
-                <input type="text" id="inTarefa" placeholder=" Tarefa"></input>
-                <select name="" id="">
-                    <option value="">Diárias</option>
-                    <option value="">Semanais</option>
-                    <option value="">Mensais</option>
-                    <option value="">Anuais</option>
+            <div className="entrada-de-dados" >
+                <input type="text" id="inTarefa" placeholder=" Tarefa" onChange={handleChange}></input>
+                <select name="" id="" value={option} onChange={handleChangeSelect}>
+                    <option value="Selecione uma categoria">Selecione uma categoria</option>
+                    <option value="Diárias">Diárias</option>
+                    <option value="Semanais">Semanais</option>
+                    <option value="Mensais">Mensais</option>
+                    <option value="Anuais">Anuais</option>
                 </select>
-                <button id="btAdd"><IoMdAdd /></button>
-                <FaCircleUser  className='icon-user'/>
+                <button type='submit' id="btAdd" onClick={handleSubmit}><IoMdAdd /></button>
+                <FaCircleUser className='icon-user' />
             </div>
         </div>
     )
