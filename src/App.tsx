@@ -14,12 +14,12 @@ interface TaskProps {
 function App() {
 
   const [taskMessage, setTaskMessage] = useState({} as TaskProps);
-  let arrayTask:TaskProps[] =[];
+  let arrayTask:TaskProps[] = []; 
   
   const handleEnviarTask = (mensagem: any) => {
     setTaskMessage(mensagem);
      // Atualiza o estado com a mensagem recebida do input
-     arrayTask = [...arrayTask,taskMessage ];
+     arrayTask = [...arrayTask, taskMessage ];
   };
   console.log(arrayTask.map(a => console.log(a.taskmessage)))
 
