@@ -17,18 +17,14 @@ function App() {
 
   const handleEnviarTask = (mensagem: any) => {
     setTaskMessage(mensagem);
-    setArrayTask(prevArray => [...prevArray, mensagem]); // Adiciona a nova tarefa ao array de tarefas
-
-    // Atualiza o estado com a mensagem recebida do input
-
+    setArrayTask(prevArray => [...prevArray, mensagem]); 
   };
 
-  console.log(arrayTask)
   return (
     <div className="App">
      <EntradaDados  onEnviar={handleEnviarTask}/>
       <ListaTasks>
-        {taskMessage != undefined ? <Task childContent={arrayTask} /> : null}
+        {taskMessage != undefined ? <Task childContent={arrayTask}/> : null}
       </ListaTasks>
       <ButtonsLaterais></ButtonsLaterais>
     </div>

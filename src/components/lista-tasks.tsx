@@ -6,9 +6,7 @@ interface ListaTasksProps {
 function ListaTasks({ children }: ListaTasksProps) {
     return (
         <div className='container-task'>
-            <div className="list-tasks">
                 {children}
-            </div>
         </div>
     )
 }

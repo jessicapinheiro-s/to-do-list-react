@@ -38,9 +38,8 @@ export default function EntradaDados({ onEnviar }: any) {
     return (
         <div className='container-input'>
             <div className="entrada-de-dados" >
-                <input type="text" id="inTarefa" placeholder=" Tarefa" onChange={handleChange}></input>
+                <input type="text" id="inTarefa" placeholder=" Tarefa" onChange={handleChange} value={valorInput}></input>
                 <select name="" id="" value={option} onChange={handleChangeSelect}>
-                    <option value="Selecione uma categoria">Selecione uma categoria</option>
                     <option value="Diárias">Diárias</option>
                     <option value="Semanais">Semanais</option>
                     <option value="Mensais">Mensais</option>

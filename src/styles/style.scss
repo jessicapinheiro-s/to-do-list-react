@@ -32,7 +32,7 @@ body {
 
 .App {
     display: grid;
-    grid-template-columns:1fr;
+    grid-template-columns: 1fr;
     padding: 10px;
     grid-template-areas: 'Input-data '
         'Tasks-body ';
@@ -69,142 +69,181 @@ body {
     }
 
 
-
     .container-task {
         grid-area: Tasks-body;
         width: 100%;
-        border: 1px solid red;
 
         .list-tasks {
             border-radius: 20px;
-            margin: 10px;
             display: flex;
-            border: 1px solid red;
+            flex-wrap: wrap;
+            align-items: start;
+            justify-content: left;
+            padding: 20px 30px;
+
 
             .task-card {
-                width: 150px;
+                width: 200px;
                 padding: 20px 30px;
                 border-radius: 10px;
-                margin: 10px;
+                margin: 15px;
                 background-color: $cor-secundaria;
                 color: $cor-font-principal;
+                height: 150px;
+                overflow-y: auto;
 
                 &:hover {
-                    background-color: $cor-light;
+                    @include animacao($cor-light, $cor-font-principal)
                 }
+
+                &::-webkit-scrollbar {
+                    width: 10px; // Largura da barra de rolagem
+                }
+
+                &::-webkit-scrollbar-thumb {
+                    background-color: #888; // Cor da barra de rolagem
+                    border-radius: 5px; // Raio da borda da barra de rolagem
+                }
+
+                //*mudar a cor da barra
+                /* &::-webkit-scrollbar-thumb:hover {
+                    background-color: #555; // Cor da barra de rolagem ao passar o mouse
+                }*/
 
                 p {
                     word-wrap: break-word;
-                    padding: 10px 0px;
+                    padding: 15px 0px;
                 }
 
                 .tipo-Task {
                     padding: 5px 8px;
                     border-radius: 20px;
-                    background-color: $cor-bt-add;
                 }
-            }
-        }
-    }
 
-    .container-input {
-        grid-area: Input-data;
-        border: 1px solid red;
-
-        .entrada-de-dados {
-            display: flex;
-            justify-content: space-between;
-            margin: 10px;
-            align-items: center;
-            border: 1px solid red;
-
-            select {
-                width: 10%;
-                border: none;
-                outline: none;
-                background-color: $cor-secundaria;
-                color: $cor-font-principal;
-                border-radius: 20px;
-                padding: 15px;
-            }
-
-            .icon-user {
-                font-size: 30px;
-                padding: 15px;
-            }
-
-            #inTarefa {
-                outline: none;
-                border: none;
-                font-size: 1rem;
-                width: 70%;
-                color: $cor-font-principal;
-                border-radius: 20px;
-                background-color: $cor-secundaria;
-                padding: 15px;
-
-                &:focus {
-                    border: 1px solid white;
+                .nome-task {
+                    font-size: 1.2rem;
                 }
             }
 
-            #btAdd {
-                background-color: $cor-bt-add;
-                color: $cor-font-principal;
-                border: none;
-                padding: 15px;
-                border-radius: 20px;
-                font-size: 1.2rem;
-                width: 6%;
-                outline: none;
-
-                &:hover {
-                    background-color: #223531;
-                }
-            }
-
-        }
-    }
-
-
-
-
-
-    .bts-laterais {
-        width: 70px;
-        align-items: center;
-        position: absolute;
-        bottom: 5%;
-        right: 1%;
-
-        .container-bt-excluir,
-        .container-bt-tarefa-concluida {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: 40px;
-            height: 40px;
-            font-size: 1.5rem;
-            color: #fff;
-            padding: 10px;
-            border-radius: 50%;
-            margin: 20px auto;
-            background-color: $cor-secundaria;
-        }
-
-        .container-bt-tarefa-concluida {
-            &:hover {
-                @include animacao($task-concluida, $cor-font-principal);
-            }
-        }
-
-        .container-bt-excluir {
-            &:hover {
-                @include animacao($task-excluida, $cor-font-principal);
-            }
         }
     }
 }
+
+.diarias {
+    background-color: #e03753;
+}
+
+.semanais {
+    background-color: #e0c737;
+}
+
+.mensais {
+    background-color: #8637e0;
+}
+
+.anuais {
+    background-color: #3794e0;
+}
+
+.container-input {
+    grid-area: Input-data;
+
+    .entrada-de-dados {
+        display: flex;
+        justify-content: space-between;
+        margin: 10px;
+        align-items: center;
+        padding: 10px 30px;
+
+        select {
+            appearance: none;
+            width: 10%;
+            border: none;
+            outline: none;
+            background-color: $cor-secundaria;
+            color: $cor-font-principal;
+            border-radius: 20px;
+            padding: 15px;
+            
+        }
+
+        .icon-user {
+            font-size: 30px;
+            padding: 15px;
+        }
+
+        #inTarefa {
+            outline: none;
+            border: none;
+            font-size: 1rem;
+            width: 70%;
+            color: $cor-font-principal;
+            border-radius: 20px;
+            background-color: $cor-secundaria;
+            padding: 15px;
+
+            &:focus {
+                border: 1px solid white;
+            }
+        }
+
+        #btAdd {
+            background-color: $cor-bt-add;
+            color: $cor-font-principal;
+            border: none;
+            padding: 15px;
+            border-radius: 20px;
+            font-size: 1.2rem;
+            width: 6%;
+            outline: none;
+
+            &:hover {
+                background-color: #223531;
+            }
+        }
+
+    }
+}
+
+
+
+
+
+.bts-laterais {
+    width: 70px;
+    align-items: center;
+    position: absolute;
+    bottom: 5%;
+    right: 1%;
+
+    .container-bt-excluir,
+    .container-bt-tarefa-concluida {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 40px;
+        height: 40px;
+        font-size: 1.5rem;
+        color: #fff;
+        padding: 10px;
+        border-radius: 50%;
+        margin: 20px auto;
+        background-color: $cor-secundaria;
+    }
+
+    .container-bt-tarefa-concluida {
+        &:hover {
+            @include animacao($task-concluida, $cor-font-principal);
+        }
+    }
+
+    .container-bt-excluir {
+        &:hover {
+            @include animacao($task-excluida, $cor-font-principal);
+        }
+    }
+}
+
 
 
 @media (max-width:600px) {
