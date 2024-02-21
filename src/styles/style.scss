@@ -27,36 +27,18 @@ body {
     color: $cor-font-principal;
     background-color: $cor-principal-dark ;
 }
-.task-card{
-    width: 150px;
-    padding: 20px 30px;
-    border-radius: 10px;
-    background-color: $cor-secundaria;
-    color: $cor-font-principal;
-    &:hover{
-        background-color: $cor-light;
-    }
-    p{
-        word-wrap: break-word;
-        padding: 10px 0px ;
-    }
-    .tipo-Task{
-        padding: 5px 8px;
-        border-radius: 20px;
-        background-color: $cor-bt-add;
-    }
-}
+
+
+
 .App {
     display: grid;
-    grid-template-columns: 15% 1fr;
+    grid-template-columns:1fr;
     padding: 10px;
-    grid-template-areas: 'Input-data Input-data'
-        'Tasks-body Tasks-body'
-        'Tasks-body Tasks-body';
-    grid-template-rows: 8% 1fr 40%;
+    grid-template-areas: 'Input-data '
+        'Tasks-body ';
+    grid-template-rows: 8% 1fr;
     height: 100vh;
     background-color: $cor-principal-dark;
-
 
     .minha-conta {
         background-color: $cor-secundaria;
@@ -86,73 +68,107 @@ body {
 
     }
 
-    .list-tasks {
-        border-radius: 20px;
-        margin: 10px;
 
-    }
 
     .container-task {
         grid-area: Tasks-body;
+        width: 100%;
+        border: 1px solid red;
+
+        .list-tasks {
+            border-radius: 20px;
+            margin: 10px;
+            display: flex;
+            border: 1px solid red;
+
+            .task-card {
+                width: 150px;
+                padding: 20px 30px;
+                border-radius: 10px;
+                margin: 10px;
+                background-color: $cor-secundaria;
+                color: $cor-font-principal;
+
+                &:hover {
+                    background-color: $cor-light;
+                }
+
+                p {
+                    word-wrap: break-word;
+                    padding: 10px 0px;
+                }
+
+                .tipo-Task {
+                    padding: 5px 8px;
+                    border-radius: 20px;
+                    background-color: $cor-bt-add;
+                }
+            }
+        }
     }
 
     .container-input {
         grid-area: Input-data;
+        border: 1px solid red;
+
+        .entrada-de-dados {
+            display: flex;
+            justify-content: space-between;
+            margin: 10px;
+            align-items: center;
+            border: 1px solid red;
+
+            select {
+                width: 10%;
+                border: none;
+                outline: none;
+                background-color: $cor-secundaria;
+                color: $cor-font-principal;
+                border-radius: 20px;
+                padding: 15px;
+            }
+
+            .icon-user {
+                font-size: 30px;
+                padding: 15px;
+            }
+
+            #inTarefa {
+                outline: none;
+                border: none;
+                font-size: 1rem;
+                width: 70%;
+                color: $cor-font-principal;
+                border-radius: 20px;
+                background-color: $cor-secundaria;
+                padding: 15px;
+
+                &:focus {
+                    border: 1px solid white;
+                }
+            }
+
+            #btAdd {
+                background-color: $cor-bt-add;
+                color: $cor-font-principal;
+                border: none;
+                padding: 15px;
+                border-radius: 20px;
+                font-size: 1.2rem;
+                width: 6%;
+                outline: none;
+
+                &:hover {
+                    background-color: #223531;
+                }
+            }
+
+        }
     }
 
-    .entrada-de-dados {
-        display: flex;
-        justify-content: space-between;
-        margin: 10px;
-        align-items: center;
 
-        select {
-            width: 10%;
-            border: none;
-            outline: none;
-            background-color: $cor-secundaria;
-            color: $cor-font-principal;
-            border-radius: 20px;
-            padding: 15px;
-        }
 
-        .icon-user {
-            font-size: 30px;
-            padding: 15px;
-        }
 
-        #inTarefa {
-            outline: none;
-            border: none;
-            font-size: 1rem;
-            width: 70%;
-            color: $cor-font-principal;
-            border-radius: 20px;
-            background-color: $cor-secundaria;
-            padding: 15px;
-
-            &:focus {
-                border: 1px solid white;
-            }
-        }
-        #btAdd {
-            background-color: $cor-bt-add;
-            color: $cor-font-principal;
-            border: none;
-            padding: 15px;
-            border-radius: 20px;
-            font-size: 1.2rem;
-            width: 6%;
-            outline: none;
-    
-            &:hover {
-                background-color: #223531;
-            }
-        }
-
-    }
-
-    
 
     .bts-laterais {
         width: 70px;
@@ -190,35 +206,6 @@ body {
     }
 }
 
-#lista {
-    width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-wrap: wrap;
-
-    .li-task {
-        background-color: $cor-light;
-        display: flex;
-        justify-content: center;
-        border-radius: 20px;
-        font-size: 1.2rem;
-        width: 300px;
-        height: 150px;
-        align-items: center;
-        word-wrap: break-word;
-
-        &:hover {
-            @include animacao($cor-secundaria, $cor-font-principal);
-        }
-
-        .bx bxs-trash-alt {
-            display: none;
-        }
-    }
-
-
-}
 
 @media (max-width:600px) {
     .container {

@@ -11,32 +11,12 @@ body {
   background-color: #1f1f1f;
 }
 
-.task-card {
-  width: 150px;
-  padding: 20px 30px;
-  border-radius: 10px;
-  background-color: #3b3b3b;
-  color: #fff;
-}
-.task-card:hover {
-  background-color: #525252;
-}
-.task-card p {
-  word-wrap: break-word;
-  padding: 10px 0px;
-}
-.task-card .tipo-Task {
-  padding: 5px 8px;
-  border-radius: 20px;
-  background-color: #e037ae;
-}
-
 .App {
   display: grid;
-  grid-template-columns: 15% 1fr;
+  grid-template-columns: 1fr;
   padding: 10px;
-  grid-template-areas: "Input-data Input-data" "Tasks-body Tasks-body" "Tasks-body Tasks-body";
-  grid-template-rows: 8% 1fr 40%;
+  grid-template-areas: "Input-data " "Tasks-body ";
+  grid-template-rows: 8% 1fr;
   height: 100vh;
   background-color: #1f1f1f;
 }
@@ -62,23 +42,49 @@ body {
   font-size: 1.3rem;
   margin-right: 10px;
 }
-.App .list-tasks {
-  border-radius: 20px;
-  margin: 10px;
-}
 .App .container-task {
   grid-area: Tasks-body;
+  width: 100%;
+  border: 1px solid red;
+}
+.App .container-task .list-tasks {
+  border-radius: 20px;
+  margin: 10px;
+  display: flex;
+  border: 1px solid red;
+}
+.App .container-task .list-tasks .task-card {
+  width: 150px;
+  padding: 20px 30px;
+  border-radius: 10px;
+  margin: 10px;
+  background-color: #3b3b3b;
+  color: #fff;
+}
+.App .container-task .list-tasks .task-card:hover {
+  background-color: #525252;
+}
+.App .container-task .list-tasks .task-card p {
+  word-wrap: break-word;
+  padding: 10px 0px;
+}
+.App .container-task .list-tasks .task-card .tipo-Task {
+  padding: 5px 8px;
+  border-radius: 20px;
+  background-color: #e037ae;
 }
 .App .container-input {
   grid-area: Input-data;
+  border: 1px solid red;
 }
-.App .entrada-de-dados {
+.App .container-input .entrada-de-dados {
   display: flex;
   justify-content: space-between;
   margin: 10px;
   align-items: center;
+  border: 1px solid red;
 }
-.App .entrada-de-dados select {
+.App .container-input .entrada-de-dados select {
   width: 10%;
   border: none;
   outline: none;
@@ -87,11 +93,11 @@ body {
   border-radius: 20px;
   padding: 15px;
 }
-.App .entrada-de-dados .icon-user {
+.App .container-input .entrada-de-dados .icon-user {
   font-size: 30px;
   padding: 15px;
 }
-.App .entrada-de-dados #inTarefa {
+.App .container-input .entrada-de-dados #inTarefa {
   outline: none;
   border: none;
   font-size: 1rem;
@@ -101,10 +107,10 @@ body {
   background-color: #3b3b3b;
   padding: 15px;
 }
-.App .entrada-de-dados #inTarefa:focus {
+.App .container-input .entrada-de-dados #inTarefa:focus {
   border: 1px solid white;
 }
-.App .entrada-de-dados #btAdd {
+.App .container-input .entrada-de-dados #btAdd {
   background-color: #e037ae;
   color: #fff;
   border: none;
@@ -114,7 +120,7 @@ body {
   width: 6%;
   outline: none;
 }
-.App .entrada-de-dados #btAdd:hover {
+.App .container-input .entrada-de-dados #btAdd:hover {
   background-color: #223531;
 }
 .App .bts-laterais {
@@ -149,34 +155,6 @@ body {
   transform: scale(1.1);
   transition: all 0.5s;
   color: #fff;
-}
-
-#lista {
-  width: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-wrap: wrap;
-}
-#lista .li-task {
-  background-color: #525252;
-  display: flex;
-  justify-content: center;
-  border-radius: 20px;
-  font-size: 1.2rem;
-  width: 300px;
-  height: 150px;
-  align-items: center;
-  word-wrap: break-word;
-}
-#lista .li-task:hover {
-  background-color: #3b3b3b;
-  transform: scale(1.1);
-  transition: all 0.5s;
-  color: #fff;
-}
-#lista .li-task .bx bxs-trash-alt {
-  display: none;
 }
 
 @media (max-width: 600px) {

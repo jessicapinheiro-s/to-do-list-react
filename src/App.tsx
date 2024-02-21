@@ -12,25 +12,23 @@ interface TaskProps {
 }
 
 function App() {
+  const [taskMessage, setTaskMessage] = useState<TaskProps[]>([]);
+  const [arrayTask, setArrayTask] = useState<TaskProps[]>([]);
 
-  const [taskMessage, setTaskMessage] = useState({} as TaskProps);
-  let arrayTask:TaskProps[] = []; 
-  
   const handleEnviarTask = (mensagem: any) => {
     setTaskMessage(mensagem);
-     // Atualiza o estado com a mensagem recebida do input
-     arrayTask = [...arrayTask, taskMessage ];
-  };
-  console.log(arrayTask.map(a => console.log(a.taskmessage)))
+    setArrayTask(prevArray => [...prevArray, mensagem]); // Adiciona a nova tarefa ao array de tarefas
 
-  
+    // Atualiza o estado com a mensagem recebida do input
+
+  };
+
+  console.log(arrayTask)
   return (
     <div className="App">
-      <EntradaDados onEnviar={handleEnviarTask} />
+     <EntradaDados  onEnviar={handleEnviarTask}/>
       <ListaTasks>
-        {
-          arrayTask.length > 1 ? <Task childContent={arrayTask} /> : null
-        }
+        {taskMessage != undefined ? <Task childContent={arrayTask} /> : null}
       </ListaTasks>
       <ButtonsLaterais></ButtonsLaterais>
     </div>

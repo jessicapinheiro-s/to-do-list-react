@@ -21,7 +21,6 @@ export default function EntradaDados({ onEnviar }: any) {
         event.preventDefault();
         if (valorInput === '') {
             alert('Campo vazio preencha corretamente');
-            return;
         }
 
         const propsTask = {
