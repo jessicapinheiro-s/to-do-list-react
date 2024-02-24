@@ -214,6 +214,6 @@ body {
     padding: 0px;
   }
   .App .container-task .list-tasks .task-card {
-    flex-basis: calc(50% - 90px);
+    width: 100%;
   }
 }/*# sourceMappingURL=style.css.map */

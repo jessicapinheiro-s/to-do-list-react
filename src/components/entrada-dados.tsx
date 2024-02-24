@@ -2,6 +2,8 @@ import '../styles/style.css'
 import { IoMdAdd } from "react-icons/io";
 import { FaCircleUser } from "react-icons/fa6";
 import { useState } from 'react';
+import { IoMdMenu } from "react-icons/io";
+
 import React from 'react';
 
 export default function EntradaDados({ onEnviar }: any) {
@@ -46,7 +48,7 @@ export default function EntradaDados({ onEnviar }: any) {
                     <option value="Anuais">Anuais</option>
                 </select>
                 <button type='submit' id="btAdd" onClick={handleSubmit}><IoMdAdd /></button>
-                <FaCircleUser className='icon-user' />
+                <IoMdMenu className='icon-user' />
             </div>
         </div>
     )
