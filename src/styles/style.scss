@@ -100,9 +100,9 @@ body {
                 word-wrap: break-word;
             }
 
-            &:hover {
+            /*&:hover {
                 @include animacao($cor-light, $cor-font-principal)
-            }
+            }*/
 
             &::-webkit-scrollbar {
                 width: 10px; // Largura da barra de rolagem
@@ -122,8 +122,11 @@ body {
                 width: 80%;
                 grid-area: task-content;
 
+
                 .nome-task {
                     font-size: 1.4rem;
+                    overflow-wrap: anywhere;
+
                 }
             }
 
@@ -262,6 +265,7 @@ body {
         .container-input {
             .entrada-de-dados {
                 padding: 0px;
+
                 #btAdd {
                     width: 33%;
 
@@ -281,11 +285,12 @@ body {
             .list-tasks {
                 justify-content: left;
                 padding: 0px;
+
                 .task-card {
                     flex-basis: calc(50% - 90px);
                 }
             }
         }
-       
+
     }
 }
