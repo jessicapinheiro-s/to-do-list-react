@@ -196,6 +196,7 @@ body {
 
 @media screen and (max-width: 600px) {
   .App {
+    padding: 0px;
     grid-template-rows: 150px 1fr;
   }
   .App .container-input .entrada-de-dados #btAdd {
@@ -206,5 +207,11 @@ body {
   }
   .App .container-input .entrada-de-dados #inTarefa {
     width: 100%;
+  }
+  .App .container-task .list-tasks {
+    justify-content: left;
+  }
+  .App .container-task .list-tasks .task-card {
+    flex-basis: calc(50% - 90px);
   }
 }/*# sourceMappingURL=style.css.map */

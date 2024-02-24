@@ -141,7 +141,8 @@ body {
 
         .bts-laterais {
             grid-area: bts-laterais;
-           margin: 0px auto;
+            margin: 0px auto;
+
             .container-bt-excluir,
             .container-bt-tarefa-concluida {
                 display: flex;
@@ -158,7 +159,7 @@ body {
 
             .container-bt-tarefa-concluida {
                 &:hover {
-                background-color: $task-concluida;
+                    background-color: $task-concluida;
                 }
             }
 
@@ -255,6 +256,7 @@ body {
 
 @media screen and (max-width:600px) {
     .App {
+        padding: 0px;
         grid-template-rows: 150px 1fr;
 
         .container-input {
@@ -273,5 +275,16 @@ body {
                 }
             }
         }
+
+        .container-task {
+            .list-tasks {
+                justify-content: left
+                ;
+                .task-card {
+                    flex-basis: calc(50% - 90px);
+                }
+            }
+        }
+       
     }
 }
