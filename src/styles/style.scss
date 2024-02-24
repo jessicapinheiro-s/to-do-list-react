@@ -261,6 +261,7 @@ body {
 
         .container-input {
             .entrada-de-dados {
+                padding: 0px;
                 #btAdd {
                     width: 33%;
 
@@ -278,8 +279,8 @@ body {
 
         .container-task {
             .list-tasks {
-                justify-content: left
-                ;
+                justify-content: left;
+                padding: 0px;
                 .task-card {
                     flex-basis: calc(50% - 90px);
                 }

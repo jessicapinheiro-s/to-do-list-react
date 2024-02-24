@@ -199,6 +199,9 @@ body {
     padding: 0px;
     grid-template-rows: 150px 1fr;
   }
+  .App .container-input .entrada-de-dados {
+    padding: 0px;
+  }
   .App .container-input .entrada-de-dados #btAdd {
     width: 33%;
   }
@@ -210,6 +213,7 @@ body {
   }
   .App .container-task .list-tasks {
     justify-content: left;
+    padding: 0px;
   }
   .App .container-task .list-tasks .task-card {
     flex-basis: calc(50% - 90px);
