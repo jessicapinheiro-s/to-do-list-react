@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import EntradaDados from './components/entrada-dados';
 import { ListaTasks } from './components/lista-tasks';
-import ButtonsLaterais from './components/buttons-laterais';
 import Task from './components/task';
 import './styles/style.css';
 import { Session } from '@supabase/supabase-js';
@@ -44,7 +43,6 @@ function App() {
       <ListaTasks>
         {taskMessage != undefined ? <Task childContent={arrayTask} /> : null}
       </ListaTasks>
-      <ButtonsLaterais></ButtonsLaterais>
     </div>
   );
 }

@@ -53,6 +53,9 @@ body {
   align-items: start;
   justify-content: left;
   padding: 20px 30px;
+  /* &::-webkit-scrollbar-thumb:hover {
+          background-color: #555; // Cor da barra de rolagem ao passar o mouse
+      }*/
 }
 .App .container-task .list-tasks .task-card {
   width: 200px;
@@ -63,33 +66,62 @@ body {
   color: #fff;
   height: 150px;
   overflow-y: auto;
-  /* &::-webkit-scrollbar-thumb:hover {
-      background-color: #555; // Cor da barra de rolagem ao passar o mouse
-  }*/
+  display: grid;
+  grid-template-columns: 1fr 50px;
+  grid-template-rows: 1fr 50px;
+  grid-template-areas: "task-content bts-laterais" "tipo-task tipo-task";
+  font-size: 1rem;
+  word-wrap: break-word;
 }
-.App .container-task .list-tasks .task-card:hover {
+.App .container-task .list-tasks:hover {
   background-color: #525252;
   transform: scale(1.1);
   transition: all 0.5s;
   color: #fff;
 }
-.App .container-task .list-tasks .task-card::-webkit-scrollbar {
+.App .container-task .list-tasks::-webkit-scrollbar {
   width: 10px;
 }
-.App .container-task .list-tasks .task-card::-webkit-scrollbar-thumb {
+.App .container-task .list-tasks::-webkit-scrollbar-thumb {
   background-color: #888;
   border-radius: 5px;
 }
-.App .container-task .list-tasks .task-card p {
-  word-wrap: break-word;
-  padding: 15px 0px;
+.App .container-task .list-tasks .content-task {
+  width: 80%;
+  grid-area: task-content;
 }
-.App .container-task .list-tasks .task-card .tipo-Task {
+.App .container-task .list-tasks .content-task .nome-task {
+  font-size: 1.4rem;
+}
+.App .container-task .list-tasks .task-type {
+  grid-area: tipo-task;
+}
+.App .container-task .list-tasks .task-type .tipo-Task {
   padding: 5px 8px;
   border-radius: 20px;
 }
-.App .container-task .list-tasks .task-card .nome-task {
-  font-size: 1.2rem;
+.App .container-task .bts-laterais {
+  grid-area: bts-laterais;
+  margin: 0px auto;
+}
+.App .container-task .bts-laterais .container-bt-excluir,
+.App .container-task .bts-laterais .container-bt-tarefa-concluida {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 20px;
+  height: 20px;
+  font-size: 1rem;
+  color: #fff;
+  padding: 10px;
+  border-radius: 50%;
+  background-color: #3b3b3b;
+}
+.App .container-task .bts-laterais .container-bt-tarefa-concluida:hover {
+  background-color: green;
+}
+.App .container-task .bts-laterais .container-bt-excluir:hover {
+  background-color: red;
 }
 
 .diarias {
@@ -160,40 +192,6 @@ body {
 }
 .container-input .entrada-de-dados #btAdd:hover {
   background-color: #223531;
-}
-
-.bts-laterais {
-  width: 70px;
-  align-items: center;
-  position: absolute;
-  bottom: 5%;
-  right: 1%;
-}
-.bts-laterais .container-bt-excluir,
-.bts-laterais .container-bt-tarefa-concluida {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 40px;
-  height: 40px;
-  font-size: 1.5rem;
-  color: #fff;
-  padding: 10px;
-  border-radius: 50%;
-  margin: 20px auto;
-  background-color: #3b3b3b;
-}
-.bts-laterais .container-bt-tarefa-concluida:hover {
-  background-color: green;
-  transform: scale(1.1);
-  transition: all 0.5s;
-  color: #fff;
-}
-.bts-laterais .container-bt-excluir:hover {
-  background-color: red;
-  transform: scale(1.1);
-  transition: all 0.5s;
-  color: #fff;
 }
 
 @media screen and (max-width: 600px) {
