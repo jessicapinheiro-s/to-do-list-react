@@ -196,8 +196,14 @@ body {
   color: #fff;
 }
 
-@media (max-width: 600px) {
-  .container {
-    width: 400px;
+@media screen and (max-width: 600px) {
+  .App .container-input .entrada-de-dados #btAdd {
+    width: 33%;
+  }
+  .App .container-input .entrada-de-dados select {
+    width: 33%;
+  }
+  .App .container-input .entrada-de-dados #inTarefa {
+    width: 100%;
   }
 }/*# sourceMappingURL=style.css.map */

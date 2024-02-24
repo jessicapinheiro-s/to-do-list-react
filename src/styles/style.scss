@@ -165,7 +165,7 @@ body {
             color: $cor-font-principal;
             border-radius: 20px;
             padding: 15px;
-            
+
         }
 
         .icon-user {
@@ -247,9 +247,25 @@ body {
 
 
 
-@media (max-width:600px) {
-    .container {
-        width: 400px;
-    }
+@media screen and (max-width:600px) {
+    .App {
 
+        .container-input {
+            .entrada-de-dados {
+                #btAdd {
+                    width: 33%;
+
+                }
+
+
+                select {
+                    width: 33%;
+                }
+
+                #inTarefa {
+                    width: 100%;
+                }
+            }
+        }
+    }
 }
