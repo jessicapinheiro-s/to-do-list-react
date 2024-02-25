@@ -13,6 +13,7 @@ export default function EntradaDados({ onEnviar }: any) {
     const [valorInput, setValorInput] = useState('');
     const dataAtual: string = new Date().toLocaleDateString();
     const categoriasTask = [
+        "Selecione um tipo",
         "Diárias",
         "Semanais",
         "Mensais",
@@ -36,10 +37,10 @@ export default function EntradaDados({ onEnviar }: any) {
 
     const handleSubmit = (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
         event.preventDefault();
-        if (valorInput === '') {
+        if (valorInput === '' || option === '') {
             alert('Campo vazio preencha corretamente');
+            return;
         }
-
         const propsTask = {
             taskmessage: valorInput,
             dataAtual: dataAtual,
