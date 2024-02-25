@@ -134,7 +134,7 @@ body {
                 grid-area: tipo-task;
 
                 .tipo-Task {
-                    padding: 5px 8px;
+                    padding: 10px;
                     border-radius: 20px;
                 }
             }
@@ -194,6 +194,7 @@ body {
 
 .container-input {
     grid-area: Input-data;
+    z-index: 1;
 
     .entrada-de-dados {
         display: flex;
@@ -253,7 +254,35 @@ body {
     }
 }
 
+.menu-lateral {
+    display: none;
+    padding: 10px;
+    width: 300px;
+    border-radius: 20px 0px 0px 20px;
+    background-color: $cor-secundaria;
+    height: 100vh;
+    nav {
+        ul {
+            list-style: none;
 
+            li {
+                padding: 15px 30px;
+                &:hover{
+                    background-color: $cor-light;
+                }
+                border-radius: 10px;
+            }
+        }
+    }
+}
+
+.ativo {
+    display: block;
+    position: absolute;
+    top: 150px;
+    right: 0%;
+    width: 50%;
+}
 
 
 
@@ -265,6 +294,7 @@ body {
         .container-input {
             .entrada-de-dados {
                 padding: 0px;
+                height: 130px;
 
                 #btAdd {
                     width: 33%;

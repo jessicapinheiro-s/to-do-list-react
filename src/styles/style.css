@@ -95,7 +95,7 @@ body {
   grid-area: tipo-task;
 }
 .App .container-task .list-tasks .task-type .tipo-Task {
-  padding: 5px 8px;
+  padding: 10px;
   border-radius: 20px;
 }
 .App .container-task .bts-laterais {
@@ -140,6 +140,7 @@ body {
 
 .container-input {
   grid-area: Input-data;
+  z-index: 1;
 }
 .container-input .entrada-de-dados {
   display: flex;
@@ -192,6 +193,33 @@ body {
   background-color: #223531;
 }
 
+.menu-lateral {
+  display: none;
+  padding: 10px;
+  width: 300px;
+  border-radius: 20px 0px 0px 20px;
+  background-color: #3b3b3b;
+  height: 100vh;
+}
+.menu-lateral nav ul {
+  list-style: none;
+}
+.menu-lateral nav ul li {
+  padding: 15px 30px;
+  border-radius: 10px;
+}
+.menu-lateral nav ul li:hover {
+  background-color: #525252;
+}
+
+.ativo {
+  display: block;
+  position: absolute;
+  top: 150px;
+  right: 0%;
+  width: 50%;
+}
+
 @media screen and (max-width: 600px) {
   .App {
     padding: 0px;
@@ -199,6 +227,7 @@ body {
   }
   .App .container-input .entrada-de-dados {
     padding: 0px;
+    height: 130px;
   }
   .App .container-input .entrada-de-dados #btAdd {
     width: 33%;

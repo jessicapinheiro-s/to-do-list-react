@@ -1,22 +1,37 @@
 import '../styles/style.css'
 import { IoMdAdd } from "react-icons/io";
 import { FaCircleUser } from "react-icons/fa6";
-import { useState } from 'react';
+import { useState, useRef } from 'react';
 import { IoMdMenu } from "react-icons/io";
+import MenuLateral from './menu-lateral';
 
 import React from 'react';
 
 export default function EntradaDados({ onEnviar }: any) {
     const [option, setOption] = useState('');
+    const [menu, setMenuAberto] = useState('');
     const [valorInput, setValorInput] = useState('');
     const dataAtual: string = new Date().toLocaleDateString();
-
+    const categoriasTask = [
+        "Diárias",
+        "Semanais",
+        "Mensais",
+        "Anuais"
+    ]
+   
     const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
         setValorInput(event.target.value);
     };
 
     const handleChangeSelect = (event: React.ChangeEvent<HTMLSelectElement>) => {
         setOption(event.target.value);
+    };
+    const handleMenu = () => {
+        if(menu === ''){
+            setMenuAberto(' ativo') ;
+        }else{
+            setMenuAberto('') 
+        }
     };
 
     const handleSubmit = (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
@@ -42,15 +57,18 @@ export default function EntradaDados({ onEnviar }: any) {
             <div className="entrada-de-dados" >
                 <input type="text" id="inTarefa" placeholder=" Tarefa" onChange={handleChange} value={valorInput}></input>
                 <select name="" id="" value={option} onChange={handleChangeSelect}>
-                    <option value="Diárias">Diárias</option>
-                    <option value="Semanais">Semanais</option>
-                    <option value="Mensais">Mensais</option>
-                    <option value="Anuais">Anuais</option>
+                    {
+                        categoriasTask.map(categoria => (
+                            <option key={categoria} value={categoria}>{categoria}</option>
+                        ))
+                    }
                 </select>
                 <button type='submit' id="btAdd" onClick={handleSubmit}><IoMdAdd /></button>
-                <IoMdMenu className='icon-user' />
+                <IoMdMenu className='icon-user' onClick={handleMenu} />
+                <MenuLateral elementoRef = {menu}/>
             </div>
         </div>
     )
 }
+
 

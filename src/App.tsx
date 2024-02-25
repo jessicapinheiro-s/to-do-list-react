@@ -8,6 +8,7 @@ import { supabase } from './supabaseClient';
 import { SessionContextProvider } from '@supabase/auth-helpers-react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Login from './pages/meuperfil';
+import MenuLateral from './components/menu-lateral';
 interface TaskProps {
   taskmessage: string;
   dataAtual: string;
@@ -43,6 +44,7 @@ function App() {
       <ListaTasks>
         {taskMessage != undefined ? <Task childContent={arrayTask} /> : null}
       </ListaTasks>
+      
     </div>
   );
 }
