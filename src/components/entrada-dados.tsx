@@ -1,9 +1,9 @@
 import '../styles/style.css'
 import { IoMdAdd } from "react-icons/io";
-import { FaCircleUser } from "react-icons/fa6";
 import { useState, useRef } from 'react';
 import { IoMdMenu } from "react-icons/io";
 import MenuLateral from './menu-lateral';
+
 
 import React from 'react';
 
@@ -12,6 +12,8 @@ export default function EntradaDados({ onEnviar }: any) {
     const [menu, setMenuAberto] = useState('');
     const [valorInput, setValorInput] = useState('');
     const dataAtual: string = new Date().toLocaleDateString();
+
+  
     const categoriasTask = [
         "Selecione um tipo",
         "Diárias",
@@ -28,11 +30,7 @@ export default function EntradaDados({ onEnviar }: any) {
         setOption(event.target.value);
     };
     const handleMenu = () => {
-        if(menu === ''){
-            setMenuAberto(' ativo') ;
-        }else{
-            setMenuAberto('') 
-        }
+        menu === '' ? setMenuAberto('aberto') : setMenuAberto('');
     };
 
     const handleSubmit = (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
@@ -66,7 +64,10 @@ export default function EntradaDados({ onEnviar }: any) {
                 </select>
                 <button type='submit' id="btAdd" onClick={handleSubmit}><IoMdAdd /></button>
                 <IoMdMenu className='icon-user' onClick={handleMenu} />
-                <MenuLateral elementoRef = {menu}/>
+                {
+                    menu != '' ? <MenuLateral funcCloseMenu = {handleMenu}/> : null
+                }
+                
             </div>
         </div>
     )

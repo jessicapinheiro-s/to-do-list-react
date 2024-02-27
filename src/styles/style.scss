@@ -255,33 +255,33 @@ body {
 }
 
 .menu-lateral {
-    display: none;
-    padding: 10px;
-    width: 300px;
+    width: 50%;
     border-radius: 20px 0px 0px 20px;
     background-color: $cor-secundaria;
     height: 100vh;
+    transition: all 0.5s;
     nav {
         ul {
             list-style: none;
 
             li {
                 padding: 15px 30px;
+                margin: 20px 0px 20px;
                 &:hover{
                     background-color: $cor-light;
                 }
                 border-radius: 10px;
+                .close-Menu-icon{
+                    font-size: 30px;
+                }
             }
         }
     }
-}
-
-.ativo {
     display: block;
     position: absolute;
-    top: 150px;
+    top: 0px;
     right: 0%;
-    width: 50%;
+  
 }
 
 

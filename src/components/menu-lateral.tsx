@@ -1,20 +1,24 @@
-import '../styles/style.css'
-import React, { useState } from 'react';
+import '../styles/style.css';
+import { IoClose } from "react-icons/io5";
 
-function MenuLateral({ elementoRef }: any) {
+
+function MenuLateral({funcCloseMenu}: any ) {
+    const closeMenu = <IoClose className='close-Menu-icon' onClick={funcCloseMenu}/>;
     const categoriasTask = [
         "Diárias",
         "Semanais",
         "Mensais",
-        "Anuais"
+        "Anuais",
+        "Minha Conta",
+        closeMenu
     ]
     return (
-        <div className={'menu-lateral' + (elementoRef != null ? elementoRef : '')}>
+        <div className={'menu-lateral'}>
             <nav  >
                 <ul>
                     {
                         categoriasTask.map(categoria => (
-                            <li key={categoria}>{categoria}</li>
+                            <li key={categoria.toString()}>{categoria}</li>
                         ))
                     }
                 </ul>

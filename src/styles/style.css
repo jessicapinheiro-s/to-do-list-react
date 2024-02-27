@@ -194,30 +194,29 @@ body {
 }
 
 .menu-lateral {
-  display: none;
-  padding: 10px;
-  width: 300px;
+  width: 50%;
   border-radius: 20px 0px 0px 20px;
   background-color: #3b3b3b;
   height: 100vh;
+  transition: all 0.5s;
+  display: block;
+  position: absolute;
+  top: 0px;
+  right: 0%;
 }
 .menu-lateral nav ul {
   list-style: none;
 }
 .menu-lateral nav ul li {
   padding: 15px 30px;
+  margin: 20px 0px 20px;
   border-radius: 10px;
 }
 .menu-lateral nav ul li:hover {
   background-color: #525252;
 }
-
-.ativo {
-  display: block;
-  position: absolute;
-  top: 150px;
-  right: 0%;
-  width: 50%;
+.menu-lateral nav ul li .close-Menu-icon {
+  font-size: 30px;
 }
 
 @media screen and (max-width: 600px) {
