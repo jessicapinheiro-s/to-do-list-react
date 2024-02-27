@@ -240,14 +240,14 @@ body {
             background-color: $cor-bt-add;
             color: $cor-font-principal;
             border: none;
-            padding: 15px;
+            padding: 10px;
             border-radius: 20px;
             font-size: 1.2rem;
             width: 6%;
             outline: none;
 
             &:hover {
-                background-color: #223531;
+                background-color: $cor-secundaria;
             }
         }
 
@@ -297,7 +297,7 @@ body {
                 height: 130px;
 
                 #btAdd {
-                    width: 33%;
+                    width: 100px;
 
                 }
 
@@ -307,6 +307,10 @@ body {
 
                 #inTarefa {
                     width: 100%;
+                }
+                .icon-user {
+                    font-size: 30px;
+                    padding: 0;
                 }
             }
         }

@@ -183,14 +183,14 @@ body {
   background-color: #e037ae;
   color: #fff;
   border: none;
-  padding: 15px;
+  padding: 10px;
   border-radius: 20px;
   font-size: 1.2rem;
   width: 6%;
   outline: none;
 }
 .container-input .entrada-de-dados #btAdd:hover {
-  background-color: #223531;
+  background-color: #3b3b3b;
 }
 
 .menu-lateral {
@@ -229,13 +229,17 @@ body {
     height: 130px;
   }
   .App .container-input .entrada-de-dados #btAdd {
-    width: 33%;
+    width: 100px;
   }
   .App .container-input .entrada-de-dados select {
     width: 33%;
   }
   .App .container-input .entrada-de-dados #inTarefa {
     width: 100%;
+  }
+  .App .container-input .entrada-de-dados .icon-user {
+    font-size: 30px;
+    padding: 0;
   }
   .App .container-task .list-tasks {
     justify-content: left;
