@@ -255,7 +255,7 @@ body {
 }
 
 .menu-lateral {
-    width: 50%;
+    width: 20%;
     border-radius: 20px 0px 0px 20px;
     background-color: $cor-secundaria;
     height: 100vh;
@@ -290,7 +290,9 @@ body {
     .App {
         padding: 0px;
         grid-template-rows: 150px 1fr;
-
+        .menu-lateral {
+            width: 50%;
+        }
         .container-input {
             .entrada-de-dados {
                 padding: 0px;

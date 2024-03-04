@@ -1,13 +1,13 @@
 import '../styles/style.css'
 import { IoMdAdd } from "react-icons/io";
-import { useState, useRef } from 'react';
+import { useState } from 'react';
 import { IoMdMenu } from "react-icons/io";
 import MenuLateral from './menu-lateral';
 
 
 import React from 'react';
 
-export default function EntradaDados({ onEnviar }: any) {
+export default function EntradaDados({ onEnviar }: { onEnviar?: any}) {
     const [option, setOption] = useState('');
     const [menu, setMenuAberto] = useState('');
     const [valorInput, setValorInput] = useState('');
@@ -46,7 +46,7 @@ export default function EntradaDados({ onEnviar }: any) {
         };
 
         // Chama a função onEnviar com as propsTask como argumento
-        onEnviar(propsTask);
+        propsTask != undefined ? onEnviar(propsTask): console .log('not found');
 
         // Limpa o valor do input
         setValorInput('');

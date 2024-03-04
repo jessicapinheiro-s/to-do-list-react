@@ -1,6 +1,5 @@
 import { useState } from "react";
-import logo from '../../imgs/logo.svg';
-import '../../styles/style.css';
+import '../styles/style.css';
 import { supabase } from '../supabaseClient';
 
 function FormularioLogin() {
@@ -11,7 +10,7 @@ function FormularioLogin() {
 
     const limparCampo = () => {
         setEmail('');
-        //setPassword('');
+        setPassword('');
     }
 
     const handleLogin = async (event: any) => {
@@ -35,7 +34,7 @@ function FormularioLogin() {
         <div className="container-form">
             <form className='modal-bg' onSubmit={handleLogin}>
                 <div className='logo-cadastro'>
-                    <img src={logo} alt="" />
+                    <img src="" alt="" />
                 </div>
                 <div className='inputs-login-form'>
                     <input

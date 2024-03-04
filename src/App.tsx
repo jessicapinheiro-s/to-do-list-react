@@ -6,9 +6,7 @@ import './styles/style.css';
 import { Session } from '@supabase/supabase-js';
 import { supabase } from './supabaseClient';
 import { SessionContextProvider } from '@supabase/auth-helpers-react';
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import Login from './pages/meuperfil';
-import MenuLateral from './components/menu-lateral';
+import { RouteHandler } from "../src/routers/roters";
 interface TaskProps {
   taskmessage: string;
   dataAtual: string;
@@ -38,12 +36,10 @@ function App() {
     setArrayTask(prevArray => [...prevArray, mensagem]);
   };
 
+  {handleEnviarTask}
   return (
     <div className="App">
-      <EntradaDados onEnviar={handleEnviarTask} />
-      <ListaTasks>
-        {taskMessage != undefined ? <Task childContent={arrayTask} /> : null}
-      </ListaTasks>
+      <RouteHandler/>
       
     </div>
   );

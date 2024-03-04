@@ -1,7 +1,5 @@
 import { useState } from "react";
-import logo from '../../imgs/logo.svg';
-import '../../styles/style.css';
-import { Link } from 'react-router-dom';
+import '../styles/style.css';
 import { useSupabaseClient } from "@supabase/auth-helpers-react";
 
 function Cadastro() {
@@ -52,7 +50,7 @@ function Cadastro() {
         <div className="container-form">
             <form className='modal-bg' onSubmit={handleCadastro}>
                 <div className='logo-cadastro'>
-                    <img src={logo} alt="" />
+                    <img src="" alt="" />
                 </div>
                 <div className='inputs-login-form'>
 

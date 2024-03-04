@@ -7,6 +7,7 @@ import {
 
 import Login from "../pages/login";
 import Cadastro from "../pages/cadastro";
+import DashTask from "../pages/dash";
 
 enum Paths {
   All = "*",
@@ -19,8 +20,8 @@ function RouteHandler() {
   const router = createHashRouter(
     createRoutesFromElements(
       <>
-        <Route path={Paths.All} element={Login.Page} />
-        <Route path={Paths.Cadastro} element={Cadastro.Page} />
+        <Route path={Paths.All} element={DashTask.Page} />
+        <Route path={Paths.Login} element={Login.Page} />
         <Route path={Paths.Cadastro} element={Cadastro.Page} />
       </>
     )

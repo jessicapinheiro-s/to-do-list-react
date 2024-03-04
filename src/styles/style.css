@@ -194,7 +194,7 @@ body {
 }
 
 .menu-lateral {
-  width: 50%;
+  width: 20%;
   border-radius: 20px 0px 0px 20px;
   background-color: #3b3b3b;
   height: 100vh;
@@ -223,6 +223,9 @@ body {
   .App {
     padding: 0px;
     grid-template-rows: 150px 1fr;
+  }
+  .App .menu-lateral {
+    width: 50%;
   }
   .App .container-input .entrada-de-dados {
     padding: 0px;
