@@ -13,14 +13,10 @@ interface das {
 
 }
 
-const task: React.FC<TaskProps> = ({ childContent }) => {
-    //const [task, setTask] = useState<TaskProps[]>([]);
-
-    /*const handleTask = (event: React.MouseEvent<HTMLDivElement, MouseEvent>)  =>{
-        event.preventDefault();
-    }*/
+const Task: React.FC<TaskProps> = ({ childContent }) => {
+    
     return (
-        <div className='list-tasks' /*onClick={handleTask}*/>
+        <div className='list-tasks' >
             {childContent.map((f, key) => (
                 <div className='task-card' key={key}>
                     <div className='content-task'>
@@ -63,17 +59,6 @@ function verificaCores(item: string) {
 
     }
 }
-export default task;
-/*export default function Task({ childContent }: TaskProps) {
-    return (
-       childContent.map(f => {
-        <div className='task-card'>
-        <p><CiCalendarDate />{f.dataAtual}</p>
-        <p>{f.taskmessage}</p>
-        <p className='tipo-Task'>{f.tipoTask}</p>
+export default Task;
 
-    </div>
-       })
-    )
-}*/
 

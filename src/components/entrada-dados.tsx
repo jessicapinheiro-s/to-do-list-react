@@ -3,17 +3,34 @@ import { IoMdAdd } from "react-icons/io";
 import { useState } from 'react';
 import { IoMdMenu } from "react-icons/io";
 import MenuLateral from './menu-lateral';
+import Task from './task';
 
+interface TaskProps {
+    childContent: das[];
+}
+interface das {
+    taskmessage?: string,
+    dataAtual?: string,
+    tipoTask?: string
 
+}
+
+interface TaskPropsObj {
+    taskmessage: string;
+    dataAtual: string;
+    tipoTask: string;
+  
+  }
+  
 import React from 'react';
 
-export default function EntradaDados({ onEnviar }: { onEnviar?: any}) {
+export default function EntradaDados() {
     const [option, setOption] = useState('');
     const [menu, setMenuAberto] = useState('');
     const [valorInput, setValorInput] = useState('');
     const dataAtual: string = new Date().toLocaleDateString();
-
-  
+    const [arrayTask, setArrayTask] = useState<TaskPropsObj[]>([]);
+    
     const categoriasTask = [
         "Selecione um tipo",
         "Diárias",
@@ -21,7 +38,7 @@ export default function EntradaDados({ onEnviar }: { onEnviar?: any}) {
         "Mensais",
         "Anuais"
     ]
-   
+
     const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
         setValorInput(event.target.value);
     };
@@ -38,18 +55,23 @@ export default function EntradaDados({ onEnviar }: { onEnviar?: any}) {
         if (valorInput === '' || option === '') {
             alert('Campo vazio preencha corretamente');
             return;
+        }else{
+
+            const propsTask = {
+                taskmessage: valorInput,
+                dataAtual: dataAtual,
+                tipoTask: option
+            };
+    
+            
+            setArrayTask(prevArray => [...prevArray, propsTask]);
+       
+            // Limpa o valor do input
+            setValorInput('');
+    
         }
-        const propsTask = {
-            taskmessage: valorInput,
-            dataAtual: dataAtual,
-            tipoTask: option
-        };
+       
 
-        // Chama a função onEnviar com as propsTask como argumento
-        propsTask != undefined ? onEnviar(propsTask): console .log('not found');
-
-        // Limpa o valor do input
-        setValorInput('');
     };
     return (
         <div className='container-input'>
@@ -67,7 +89,7 @@ export default function EntradaDados({ onEnviar }: { onEnviar?: any}) {
                 {
                     menu != '' ? <MenuLateral funcCloseMenu = {handleMenu}/> : null
                 }
-                
+                <Task childContent = {arrayTask}/>
             </div>
         </div>
     )
