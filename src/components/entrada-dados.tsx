@@ -3,17 +3,8 @@ import { IoMdAdd } from "react-icons/io";
 import { useState } from 'react';
 import { IoMdMenu } from "react-icons/io";
 import MenuLateral from './menu-lateral';
-import Task from './task';
-
-interface TaskProps {
-    childContent: das[];
-}
-interface das {
-    taskmessage?: string,
-    dataAtual?: string,
-    tipoTask?: string
-
-}
+import React from 'react';
+import { ListaTasks } from './lista-tasks';
 
 interface TaskPropsObj {
     taskmessage: string;
@@ -22,7 +13,7 @@ interface TaskPropsObj {
   
   }
   
-import React from 'react';
+
 
 export default function EntradaDados() {
     const [option, setOption] = useState('');
@@ -89,7 +80,7 @@ export default function EntradaDados() {
                 {
                     menu != '' ? <MenuLateral funcCloseMenu = {handleMenu}/> : null
                 }
-                <Task childContent = {arrayTask}/>
+                <ListaTasks childContent={arrayTask}/>
             </div>
         </div>
     )

@@ -1,47 +1,42 @@
 import '../styles/style.css'
 import { CiCalendarDate } from "react-icons/ci";
-import React, { useState } from 'react';
 import { FaTrash } from "react-icons/fa6";
 import { FaCheck } from "react-icons/fa";
+
 interface TaskProps {
-    childContent: das[];
+    TaskProperty: TaskProperty;
 }
-interface das {
+interface TaskProperty {
     taskmessage?: string,
     dataAtual?: string,
     tipoTask?: string
-
 }
 
-const Task: React.FC<TaskProps> = ({ childContent }) => {
-    
+const Task: React.FC<TaskProps> = ({TaskProperty}) => {
+
     return (
-        <div className='list-tasks' >
-            {childContent.map((f, key) => (
-                <div className='task-card' key={key}>
-                    <div className='content-task'>
-                        <p><CiCalendarDate />{f.dataAtual}</p>
-                        <p className='nome-task'>{f.taskmessage}</p>
-                    </div>
+        <div className='task-card' >
+            <div className='content-task'>
+                <p><CiCalendarDate />{TaskProperty.dataAtual}</p>
+                <p className='nome-task'>{TaskProperty.taskmessage}</p>
+            </div>
 
-                    <div className="bts-laterais">
-                        <div className="container-bt-tarefa-concluida" id="container-bt-tarefa-concluida">
-                            <FaTrash />
-                        </div>
-                        <div className="container-bt-excluir" id="container-bt-excluir">
-                            <FaCheck />
-                        </div>
-                    </div>
-                    <div className='task-type'>
-                        <p className={'tipo-Task' + (f.tipoTask != undefined ? verificaCores(f.tipoTask) : null)}>{f.tipoTask}</p>
-
-                    </div>
+            <div className="bts-laterais">
+                <div className="container-bt-tarefa-concluida" id="container-bt-tarefa-concluida">
+                    <FaTrash />
                 </div>
-            ))}
+                <div className="container-bt-excluir" id="container-bt-excluir">
+                    <FaCheck />
+                </div>
+            </div>
+            <div className='task-type'>
+                <p className={'tipo-Task' + (TaskProperty.tipoTask != undefined ? verificaCores(TaskProperty.tipoTask) : null)}>{TaskProperty.tipoTask}</p>
+
+            </div>
         </div>
+    
     )
 }
-
 function verificaCores(item: string) {
     if (item === 'Diárias') {
         return ' diarias';
@@ -59,6 +54,7 @@ function verificaCores(item: string) {
 
     }
 }
+
 export default Task;
 
 
